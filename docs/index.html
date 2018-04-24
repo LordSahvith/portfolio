@@ -5,8 +5,10 @@
     <title>Home || Mckay Web Design</title>
     
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="shortcut icon" type="image/png" href="assets/img/favicon.ico"/>
     
     <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
 <!--
     <link rel="stylesheet" href="assets/css/navigation.css">
     <link rel="stylesheet" href="assets/css/mobile_nav.css">
@@ -16,7 +18,9 @@
     <style>
         
         body {
-            background-color: #333;
+            color: #333;
+            font-family: Arial, sans-serif;
+            height: 100%;
         }
         
       /*  BASE NAV   */
@@ -26,11 +30,17 @@
         }
         
         a {
+            color: #333;
             text-decoration: none;
+            transition: all .4s;
+        }
+        
+        a:hover {
+            color: #c61a1a;
         }
         
         nav {
-/*            position: relative;*/
+            position: relative;
             width: 100%;
             height: 70px;
             text-align: center;
@@ -47,35 +57,42 @@
         
         .logo {
             position: absolute;
+            padding-top: 9px;
             left: 15px;
-            transition: all .5s;
+            height: 54px;
+            width: 55px;
+            transition: all .4s;
         }
         
         .logo:hover {
             transform: scale(1.04);
+            -webkit-transform: scale(1.04);
+            -moz-transform: scale(1.04);
+            -ms-transform: scale(1.04);
+            -o-transform: scale(1.04);
         }
         
       /*  MOBILE NAV   */
         
         .overlay {
             height: 100%;
+            margin-top: 70px;
             width: 0;
             position: fixed;
             top: 0;
+            background-color: rgba(0, 0, 0, 0.8);
             overflow-x: hidden;
-            transition: all .5s;
+            transition: all .4s;
         }
         
         .overlay-content {
             position: relative;
-            top: 20%;
+            top: 5%;
             width: 100%;
-            text-align: left;
         }
 
         .overlay a {
-            padding: 8px;
-            text-decoration: none;
+            padding: 18px;
             font-size: 2.2rem;
             color: #FFF;
             display: block; 
@@ -88,24 +105,12 @@
         }
 
         .overlay a:hover, .overlay a:focus {
-            color: red;
-        }
-
-        .overlay .overlay-content .closebtn {
-            position: absolute;
-            right: 28px;
-            top: 25%;
-            font-size: 60px;
-        }
-
-        a.sub-class {
-            font-size: 2rem;
-            text-indent: 50px;
+            color: #c61a1a;
         }
         
         .mobile-icon {
             position: relative;
-            transition: all .5s;
+            transition: all .4s;
         }
         
         .toggle-button {
@@ -122,7 +127,7 @@
         }
         
         .mobile-icon:hover .menu-bar {
-            background-color: red;
+            background-color: #c61a1a;
         }
         
         .toggle-button .menu-bar {
@@ -131,7 +136,7 @@
             height: 4px;
             width: 42px;
             background-color: #333;
-            transition: all .5s;
+            transition: all .4s;
         }
         
         .toggle-button .menu-bar-top {
@@ -156,7 +161,7 @@
             -moz-transform: rotate(45deg) translate(8px, 8px);
             -ms-transform: rotate(45deg) translate(8px, 8px);
             -o-transform: rotate(45deg) translate(8px, 8px);
-            transition: .5s;
+            transition: .4s;
         }
 
         .button-open .menu-bar-middle {
@@ -175,9 +180,15 @@
             -moz-transform: rotate(-45deg) translate(8px, -7px);
             -ms-transform: rotate(-45deg) translate(8px, -7px);
             -o-transform: rotate(-45deg) translate(8px, -7px);
-            transition: .5s;
+            transition: .4s;
         }
         
+        @media screen and (min-width: 980px) {
+            .mobile-icon, .logo-mobile {
+                opacity: 0;
+                pointer-events: none;
+            }
+        }
         
       /*  DESKTOP NAV   */
         
@@ -185,6 +196,48 @@
             display: inline-block;
             opacity: 0;
             pointer-events: none;
+            transition: all .4s;
+        }
+        
+        .nav-item {
+            padding-left: 35px;
+            padding-right: 35px;
+            font-size: 1.5rem;
+        }
+        
+        @media screen and (min-width: 980px) {
+            .main-nav {
+                opacity: 1;
+                pointer-events: all;
+            }
+        }
+        
+      /*  HERO   */
+        
+        .hero-home {
+            height: 600px;
+            padding-top: 70px;
+            background-color: #333;
+/*            background: #333 url(assets/img/hero-home.png) center center no-repeat;*/
+            background-size: cover;
+            color: #FFF;
+        }
+        
+        .main-caption {
+/*            background-color: rgba(0, 0, 0, 0.5);*/
+/*            width: 45%;*/
+            margin: 150px auto 0;
+            padding: 10px;
+            text-align: center;
+        }
+        
+      /*  INTRO   */
+        
+      /*  PORTFOLIO   */
+        
+        .portfolio-slide {
+            background-color: rgba(0, 0, 0, 0.1);
+            height: 50vh;
         }
     
     </style>
@@ -200,8 +253,8 @@
             
             <div id="mobile-nav" class="overlay">   
 
-                <div class="overlay-content mobile-nav-overlay"> 
-                   <div class="container mobile-nav-overlay-content">
+                <div class="overlay-content"> 
+                   <div class="container">
 
                         <a href="#">Services</a>
                         <a href="#">Projects</a>
@@ -214,27 +267,28 @@
                 
 
             </div> <!-- mobile-nav -->
-                <div class="mobile-icon" onclick="toggleNav()">                
-                   <div class="fade-up">
-                        <div class="toggle-button"> 
-                            <div class="menu-bar menu-bar-top"></div>
-                            <div class="menu-bar menu-bar-middle"></div>
-                            <div class="menu-bar menu-bar-bottom"></div>     
-                        </div>               
-                   </div>                      
-                </div>    
+               
+            <div class="mobile-icon" onclick="toggleNav()">                
+               <div class="fade-up">
+                    <div class="toggle-button"> 
+                        <div class="menu-bar menu-bar-top"></div>
+                        <div class="menu-bar menu-bar-middle"></div>
+                        <div class="menu-bar menu-bar-bottom"></div>     
+                    </div>               
+               </div>                      
+            </div>   <!-- mobile-icon -->  
 
-            <a href="#"><img class="logo logo-mobile" src="" alt="Mckay Web Design Logo"></a>
-
+            <a href="#"><img class="logo" src="assets/img/logo-red.png" alt="Mckay Web Design Logo"></a>
+            
             <div class="main-nav fade-down">
 
                 <ul class="nav-items">
                   <div class="nav-container">
                       
-                    <a href="#"><img class="logo logo-main" src="" alt="Mckay Web Design Logo"></a>    
                     <li class="nav-item"><a href="#">Services</a></li>                                
                     <li class="nav-item"><a href="#">Projects</a></li>                                       
-                    <li class="nav-item"><a href="#">Events</a></li>                                
+                    <li class="nav-item"><a href="#">Blog</a></li>                                
+                    <li class="nav-item"><a href="#">About</a></li>                                
                     <li class="nav-item"><a href="#">Contact</a></li> 
                                                    
                   </div>
@@ -246,6 +300,49 @@
         </nav>
         
     </header>
+    
+   
+    <!-- =========== HERO ====================== -->
+    
+    <section class="hero-home">        
+           
+        <div class="main-caption">
+
+            <h2>Mckay Web Design</h2>
+            <p>Your friendly neighborhood Web Designer</p>
+            <p>Because passion begets excellence</p>
+
+        </div>     
+        
+    </section>
+    
+   
+    <!-- =========== INTRO ====================== -->
+    
+    <section class="home-intro">
+       
+        <div class="container">
+
+            <p>You better run, squirrel! Y'all get him!!! (Marty climbs over tables and swings on the chandelier before finally getting out of the saloon. But the gang is in hot pursuit. Marty runs like crazy.) Whoa! Whoa! Whoa! Whoa! (Outside)</p>
+
+        </div>        
+        
+    </section>
+    
+   
+    <!-- =========== PORTFOLIO SLIDE ====================== -->
+    
+    <section class="portfolio-slide">
+        
+        <div class="container">
+            
+            <h3>Works</h3>
+            
+            
+            
+        </div>
+        
+    </section>
     
     
     
