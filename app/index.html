@@ -53,6 +53,7 @@
         .nav-bar {
             position: fixed;
             background-color: #FFF;
+            z-index: 10;
         }
         
         .logo {
@@ -217,10 +218,11 @@
         .hero-home {
             height: 600px;
             padding-top: 70px;
-            background-color: #333;
+            background-color: rgba(0, 0, 0, 0.5);
 /*            background: #333 url(assets/img/hero-home.png) center center no-repeat;*/
             background-size: cover;
             color: #FFF;
+            overflow-x: hidden;
         }
         
         .main-caption {
@@ -238,6 +240,19 @@
         .portfolio-slide {
             background-color: rgba(0, 0, 0, 0.1);
             height: 50vh;
+        }
+        
+        
+        
+        
+    
+        .box {
+            text-align: left;
+            position: absolute; /* maybe relative */
+            width: 25%;
+            height: auto;
+            opacity: 0;
+            color: black;
         }
     
     </style>
@@ -309,10 +324,63 @@
         <div class="main-caption">
 
             <h2>Mckay Web Design</h2>
-            <p>Your friendly neighborhood Web Designer</p>
+            <h4>Modern, Elegant Design</h4>
+            <p>Built with you in mind</p>
+<!--            <p>Your friendly neighborhood Web Designer</p>-->
             <p>Because passion begets excellence</p>
 
-        </div>     
+        </div>      
+        
+              <div class="box box1">
+            <code>
+                .box { <br>
+                    width: 25%;<br>
+                    height: 150px;<br>
+                    animation: slide 2s forwards;<br>
+                }
+            </code>
+        </div>
+        
+        <div class="box box2">
+            <code>body { text-align: center; }</code>
+        </div>
+        
+        
+        <div class="box box3">
+            <code>       
+                .boxes {<br>
+                    position: relative;<br>
+                    width: auto;<br>
+                    height: 600px;<br>
+                    background-color: rgba(0, 0, 0, 0.1);<br>
+                    overflow: hidden;<br>
+                }
+            </code>
+        </div>
+        
+        
+        <div class="box box4">
+            <code>$box1.css({<br>
+               top: position1,<br>
+               left: position2,<br>
+               fontSize: fontSize1<br>
+           })</code>
+        </div>
+        
+        
+        <div class="box box5">
+            <code>body { text-align: center; }</code>
+        </div>
+        
+        
+        <div class="box box6">
+            <code>body { text-align: center; }</code>
+        </div>
+        
+        
+        <div class="box box7">
+            <code>body { text-align: center; }</code>
+        </div>  
         
     </section>
     
@@ -325,7 +393,7 @@
 
             <p>You better run, squirrel! Y'all get him!!! (Marty climbs over tables and swings on the chandelier before finally getting out of the saloon. But the gang is in hot pursuit. Marty runs like crazy.) Whoa! Whoa! Whoa! Whoa! (Outside)</p>
 
-        </div>        
+        </div>     
         
     </section>
     
@@ -348,5 +416,87 @@
     
     <script src="assets/Jquery/jquery-3.2.1.min.js"></script>
     <script src="assets/js/mobile_nav.js"></script>
+   
+   <script>
+   
+       $(document).ready(function() {
+          
+           var $box1 = $('.box1'),
+               $box2 = $('.box2'),
+               $box3 = $('.box3'),
+               $box4 = $('.box4'),
+               $box5 = $('.box5'),
+               $box6 = $('.box6'),
+               $box7 = $('.box7');
+           
+           var $screenWidth = $(window).width();
+           
+           var position1 = Math.floor((Math.random() * 600) + 1),
+               position2 = Math.floor((Math.random() * 1000) + 1),
+               position3 = Math.floor((Math.random() * 600) + 1),
+               position4 = Math.floor((Math.random() * 1000) + 1),
+               position5 = Math.floor((Math.random() * 600) + 1),
+               position6 = Math.floor((Math.random() * 1000) + 1),
+               position7 = Math.floor((Math.random() * 600) + 1),
+               position8 = Math.floor((Math.random() * 1000) + 1),
+               position9 = Math.floor((Math.random() * 600) + 1),
+               position10 = Math.floor((Math.random() * 1000) + 1),
+               position11 = Math.floor((Math.random() * 600) + 1),
+               position12 = Math.floor((Math.random() * 1000) + 1),
+               position13 = Math.floor((Math.random() * 600) + 1),
+               position14 = Math.floor((Math.random() * 1000) + 1);
+           
+           var fontSize1 = Math.floor((Math.random() * 20) + 6),
+               fontSize2 = Math.floor((Math.random() * 20) + 6),
+               fontSize3 = Math.floor((Math.random() * 20) + 6),
+               fontSize4 = Math.floor((Math.random() * 20) + 6);
+           
+           $box1.css({
+               top: position1,
+               left: position2,
+               fontSize: fontSize1
+           })
+           $box2.css({
+               top: position3,
+               left: position4,
+               fontSize: fontSize2
+           })
+           $box3.css({
+               top: position5,
+               left: position6,
+               fontSize: fontSize3
+           })
+           $box4.css({
+               top: position7,
+               left: position8,
+               fontSize: fontSize4
+           })
+           $box5.css({
+               top: position9,
+               left: position10,
+               fontSize: fontSize1
+           })
+           $box6.css({
+               top: position11,
+               left: position12,
+               fontSize: fontSize2
+           })
+           $box7.css({
+               top: position13,
+               left: position14,
+               fontSize: fontSize3
+           })
+           
+           $box1.animate({opacity: 1, left : $screenWidth},5000);
+           $box2.animate({opacity: 1, left : "-" + $screenWidth},5000);
+           $box3.animate({opacity: 1, left : $screenWidth},5000);
+           $box4.animate({opacity: 1, left : "-" + $screenWidth},5000);
+           $box5.animate({opacity: 1, left : $screenWidth},5000);
+           $box6.animate({opacity: 1, left : "-" + $screenWidth},5000);
+           $box7.animate({opacity: 1, left : $screenWidth},5000);
+           
+       });
+    
+    </script>
 </body>
 </html>
